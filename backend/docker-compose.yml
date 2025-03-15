@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    container_name: mysql-db
+    image: mysql:5.7.44
+    env_file: ./.env
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_ROOT_PASSWORD: $DB_PASSWORD
+    ports:
+      - $DB_LOCAL_PORT:$DB_DOCKER_PORT
+    volumes:
+      - db_data:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-manager
+    env_file: ./.env
+    restart: unless-stopped
+    ports:
+      - $APP_PORT:$APP_PORT
+    environment:
+      - NODE_ENV=production
+
+      - DB_HOST=db
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
+    depends_on:
+      - db
+
+volumes:
+  db_data: 
