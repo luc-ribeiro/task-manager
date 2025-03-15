@@ -19,6 +19,14 @@ Uma API RESTful para gerenciamento de tarefas desenvolvida com [Node.js](https:/
 - [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
 - [Node.js](https://nodejs.org/)
 
+## Executando os testes unitários
+
+Para executar os testes, use o seguinte comando localmente:
+
+```bash
+npm test
+```
+
 ## Executando a aplicação com Docker
 
 Para iniciar a aplicação, basta executar o seguinte comando na raiz do projeto:
@@ -96,14 +104,6 @@ Corpo da requisição:
 ### Excluir uma tarefa
 ```
 DELETE /tasks/:id
-```
-
-## Executando os testes unitários
-
-Para executar os testes, use o seguinte comando localmente:
-
-```bash
-npm test
 ```
 
 ## Solução de problemas
