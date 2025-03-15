@@ -131,17 +131,15 @@ docker-compose restart
 
 ```
 task-manager/
-├── db/                 # Scripts SQL
+├── config/             # Configuração de bibliotecas
+├── db/                 # Configuração do banco de dados
 ├── src/
 │   ├── controllers/    # Controladores
 │   ├── middleware/     # Middlewares
-│   ├── models/         # Modelos e tipos
 │   ├── repositories/   # Repositórios para acesso ao banco
 │   ├── routes/         # Rotas da API
+│   ├── types/          # Modelos e tipos
 │   ├── validators/     # Validadores de entrada
-│   ├── tests/          # Testes
-│   │   ├── unit/       # Testes unitários
-│   │   └── integration/# Testes de integração
 │   ├── app.ts          # Configuração do Express
 │   └── server.ts       # Ponto de entrada da aplicação
 ├── .env                # Variáveis de ambiente
