@@ -18,6 +18,7 @@ export const createTaskValidator = [
   body('description')
     .optional()
     .trim()
+    .isLength({ max: 500 }).withMessage('A descrição deve ter no máximo 500 caracteres')
     .escape(),
   body('status')
     .optional()
@@ -37,6 +38,7 @@ export const updateTaskValidator = [
   body('description')
     .optional()
     .trim()
+    .isLength({ max: 500 }).withMessage('A descrição deve ter no máximo 500 caracteres')
     .escape(),
   body('status')
     .optional()
